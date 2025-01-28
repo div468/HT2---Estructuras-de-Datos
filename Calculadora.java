@@ -5,13 +5,19 @@ import java.util.Scanner;
 
 public class Calculadora{
     Stack<Integer> stack = new StackVector<Integer>();
-    public String leerArchivo(String direccion) throws IOException{
-            FileReader reader = new FileReader(direccion);
-            BufferedReader lectura = new BufferedReader(reader);
-            String operacion = lectura.readLine();
-            lectura.close();
-            return operacion;
-            }
+    private String archivoRuta = "datos.txt";
+    public Calculadora(String rutaArchivo) {
+        this.archivoRuta = rutaArchivo;
+    }
+    public Calculadora() {
+    }
+    public String leerArchivo() throws IOException {
+        FileReader reader = new FileReader(archivoRuta);
+        BufferedReader lectura = new BufferedReader(reader);
+        String operacion = lectura.readLine();
+        lectura.close();
+        return operacion;
+    }
     
     public int Calculo(int operando2, int operando1, String operador){
         switch (operador) {
