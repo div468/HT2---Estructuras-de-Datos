@@ -1,24 +1,17 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Calculadora{
     Stack<Integer> stack = new StackVector<Integer>();
-    private String archivoRuta;
-    
-    public Calculadora(String archivoRuta) {
-        this.archivoRuta = archivoRuta;
+
+    public Stack<Integer> getStack(){
+        return stack;
     }
-    public Calculadora() {
+
+    public void setStack(Stack<Integer> stack){
+        this.stack = stack;
     }
     
-    public String leerArchivo() throws IOException {
-        FileReader reader = new FileReader(archivoRuta);
-        BufferedReader lectura = new BufferedReader(reader);
-        String operacion = lectura.readLine();
-        lectura.close();
-        return operacion;
+    public Calculadora(){    
     }
     
     public int Calculo(int operando2, int operando1, String operador){
@@ -62,22 +55,4 @@ public class Calculadora{
         return stack.peek();
     }
 
-    public static void main(String[] args) {
-        Calculadora calculadora = new Calculadora("C:\\Users\\mads4\\Desktop\\Datos.txt"); // Usa la ruta predeterminada
-        try {
-            // Leer la operación del archivo
-            String operacion = calculadora.leerArchivo();
-            System.out.println("Operacion leída del archivo: " + operacion);
-
-            // Calcular el resultado
-            int resultado = calculadora.Resultado(operacion);
-            System.out.println("El resultado de la operación es: " + resultado);
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error en la operación: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
-        }
-    }
 }   
