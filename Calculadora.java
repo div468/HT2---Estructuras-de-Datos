@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 public class Calculadora{
     Stack<Integer> stack = new StackVector<Integer>();
-    private String archivoRuta = "datos.txt";
-    public Calculadora(String rutaArchivo) {
-        this.archivoRuta = rutaArchivo;
+    private String archivoRuta;
+    
+    public Calculadora(String archivoRuta) {
+        this.archivoRuta = archivoRuta;
     }
     public Calculadora() {
     }
+    
     public String leerArchivo() throws IOException {
         FileReader reader = new FileReader(archivoRuta);
         BufferedReader lectura = new BufferedReader(reader);
@@ -58,5 +60,24 @@ public class Calculadora{
         }
         scanner.close();
         return stack.peek();
+    }
+
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora("C:\\Users\\mads4\\Desktop\\Datos.txt"); // Usa la ruta predeterminada
+        try {
+            // Leer la operación del archivo
+            String operacion = calculadora.leerArchivo();
+            System.out.println("Operacion leída del archivo: " + operacion);
+
+            // Calcular el resultado
+            int resultado = calculadora.Resultado(operacion);
+            System.out.println("El resultado de la operación es: " + resultado);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error en la operación: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
     }
 }   
