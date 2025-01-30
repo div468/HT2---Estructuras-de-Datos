@@ -1,6 +1,6 @@
 /**
 * @Project : HT2 - Algoritmos y Estructuras de Datos
-* @author Julián Divas
+* @author Pablo Toledo
 * Creacion 28.01.2025
 * Ultima modificacion 30.01.2025
 * @FileName: Main.java
