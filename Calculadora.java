@@ -14,7 +14,7 @@ public class Calculadora{
     public Calculadora(){    
     }
     
-    public int Calculo(int operando2, int operando1, String operador){
+    public int Calculo(int operando1, int operando2, String operador){
         switch (operador) {
             case "+":
                 return operando1 + operando2;
@@ -47,7 +47,7 @@ public class Calculadora{
                 String operador = scanner.next();
                 int operando2 = stack.pop();
                 int operando1 = stack.pop();    
-                int resultado = Calculo(operando2, operando1, operador);
+                int resultado = Calculo(operando1, operando2, operador);
                 stack.push(resultado);
             }
         }
