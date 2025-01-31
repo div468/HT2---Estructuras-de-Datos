@@ -1,7 +1,13 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+* @Project : HT2 - Algoritmos y Estructuras de Datos
+* @author Juan Muñoz
+* Creacion 28.01.2025
+* Ultima modificacion 30.01.2025
+* @FileName: StackVectorTest.java
+*/
 class StackVectorTest {
 
     private StackVector<Integer> stack;
